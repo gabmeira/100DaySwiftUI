@@ -3,7 +3,7 @@
 
 **Day 000**
 
-Part One: 5 Principais habilidades 
+Part One: 5 Principais habilidades | Habilidades Básicas
 
 1. Swift - É o código puro da Apple, é usado como base para os app. 
 2. SwiftUI - É um Framework, pode ser considerado um código para interface do usuário, uma estrutura da apple para desenvolver app no iOS, MacOS etc..

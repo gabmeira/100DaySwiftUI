@@ -18,7 +18,7 @@ import Cocoa
 
 // Exemplo Var
 
-var nome = "Gabriel
+var nome = "Gabriel"
 nome = "Meira"
 nome = "Água"
 

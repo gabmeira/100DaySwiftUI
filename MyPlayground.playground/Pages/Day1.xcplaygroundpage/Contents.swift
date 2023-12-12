@@ -43,3 +43,30 @@ print(playerName)
 let managerName = "Michael Scott"
 let dogBreed = "Samoyed"
 let meaningOfLife = "How many roads must a man walk down?"
+
+// Criando Strings
+
+let actor = "Denzel Washington"
+let filename = "paris.jpg"
+let result = "⭐️ You win! ⭐️"
+
+let quote = "Then he tapped a sign saying \"Believe\" and walked away."
+
+let movie = """
+A day in
+the life of an
+Apple enginner
+"""
+
+print(actor.count)
+
+let nameLength = actor.count
+print(nameLength)
+
+print(result.uppercased())
+
+print(movie.hasPrefix("A day"))
+
+print(filename.hasSuffix(".jpg")) // Vai dar verdadeiro (true).
+
+print(filename.hasSuffix(".JPG")) // Vai dar falso (false), as Strings diferencial letras maiúsculas de minúsculas.

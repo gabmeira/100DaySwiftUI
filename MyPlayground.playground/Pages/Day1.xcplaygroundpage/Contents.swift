@@ -70,3 +70,68 @@ print(movie.hasPrefix("A day"))
 print(filename.hasSuffix(".jpg")) // Vai dar verdadeiro (true).
 
 print(filename.hasSuffix(".JPG")) // Vai dar falso (false), as Strings diferencial letras maiúsculas de minúsculas.
+
+// Números inteiros
+
+let score = 10
+
+let reallyBig = 100_000_000 // Os (_) são completamente ignorados pelo Swift
+
+let reallyBigTwo = 1_00_0_000_00 // Para exemplo esse número é o mesmo do anterior.
+
+print("\(reallyBig) e \(reallyBigTwo) são iguais.")
+
+// Também temos os Operadores aritméticos
+
+let lowerScore = score - 2
+let higherScore = score + 10
+let doubledScore = score * 2
+let squaredScore = score * score
+let halvedScore = score / 2
+
+print(score)
+print(lowerScore)
+print(higherScore)
+print(doubledScore)
+print(squaredScore)
+print(halvedScore)
+
+var counter = 10
+
+counter = counter + 5
+print(counter)
+
+counter += 5
+print(counter)
+
+counter *= 2
+print(counter)
+
+counter -= 10
+print(counter)
+
+counter /= 2
+print(counter)
+
+let number = 120
+print(number.isMultiple(of: 3))
+
+print(120.isMultiple(of: 3))
+
+// Armazenamento de Números decimais
+
+let number1 = 0.1 + 0.2
+print(number1)
+
+let a = 1
+let b = 2.0
+let c1 = a + Int(b)
+let c2 = Double(a) + b
+print(c1)
+print(c2)
+
+var rating = 5.0
+print(rating)
+
+rating *= 2 // Da para usar operadores de atribuição entre números inteiros e decimais.
+print(rating)

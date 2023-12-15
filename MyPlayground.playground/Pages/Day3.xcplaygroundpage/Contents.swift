@@ -74,3 +74,45 @@ heights["LeBron James"] = 206
 
 print(heights["Yao Ming"])
 
+// Conjuntos para pesquisa rápida de dados
+
+let people = Set(["Gabriel Meira", "Naflali Oliveira", "Giovanna Meira", "Giulinha Meira"])
+
+print(people)
+
+var people2 = Set<String>()
+people2.insert("Denzel Washington")
+people2.insert("Tom Cruise")
+people2.insert("Nicolas Cage")
+people2.insert("Samuel L Jackson")
+
+print(people2.contains("Tom Cruise"))
+print(people2.count)
+print(people2.sorted())
+
+var readings = Set([true, false, true, true]) // Interessante que o conjunto (set) não tem itens repetidos, mas da para colocar repetido que ele só vai deixar um como valido, não da erro.
+print(readings)
+
+// Enums (enumeração) - Criar e usar
+
+enum Weekday {
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+}
+
+var day = Weekday.monday
+day = Weekday.tuesday
+day = Weekday.friday
+
+enum WeekdayTwo {
+    case monday, tuesday, wednesday, thursday, friday
+}
+
+var day2 = WeekdayTwo.monday
+day2 = .tuesday
+day2 = .friday
+
+

@@ -95,3 +95,58 @@ func isEveryoneAdult(ages: [Int]) -> Bool {
 }
 
 print(isEveryoneAdult(ages: [20, 20, 16, 24])) // Quando a matriz/array tem algum valor abaixo de 18, ele da como falso, mas se todos os valores forem acima de 18 ele da como verdadeiro. Porque ele sai do laço/for sem resultado e cai no return true direto.
+
+
+// Retornar vários valores em funções // Tuplas ou tuples
+
+func getUser() -> (firstName: String, lastName: String) {
+    (firstName: "Taylor", lastName: "Swift")
+}
+
+//let user = getUser()
+//print("Name: \(user.firstName) \(user.lastName)")
+
+func getUser2() -> (firstName: String, lastName: String) {
+    ("Taylor2", "Swift2")
+}
+
+let user2 = getUser2()
+print("Name: \(user2.firstName) \(user2.lastName)")
+
+func getUser3() -> (String, String) {
+    ("Taylor3", "Swift3")
+}
+
+let user3 = getUser3()
+print("Name: \(user3.0) \(user3.1)")
+
+let (firstName, _) = getUser()
+print("Name: \(firstName)")
+
+// Personalizar rótulos de parâmetros
+
+func rollDice(sides: Int, count: Int) -> [Int] {
+    // Start with an empty arrya //  Começa com um array vazio
+    var rolls = [Int]()
+    
+    // Roll as many dice as needed // Rola quantos dados forem necessários
+    for _ in 1...count {
+        // Add each result to our array
+        let roll = Int.random(in: 1...sides)
+        rolls.append(roll)
+    }
+    
+    // Send back all the rolls // Envia de volta todos os rolos
+    return rolls
+}
+
+let rolls = rollDice(sides: 6, count: 4)
+print("Valor do dado: \(rolls)")
+
+func printTimesTables(for number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+
+printTimesTables(for: 5)

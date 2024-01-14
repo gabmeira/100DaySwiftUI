@@ -286,3 +286,217 @@ dave.clients.append("Sam")
 
 print(tim.clients.count)
 print(dave.clients.count)
+
+print()
+print()
+
+//* 05 Desinicializador de Class
+
+class User5 {
+    let id: Int
+    
+    init(id: Int) {
+        self.id = id
+        print("User \(id): I'm alive!")
+    }
+    
+    deinit {
+        print("User \(id): I'm dead!")
+    }
+}
+
+for i in 1...3 {
+    let user = User5(id: i)
+    print("User \(user.id): I'm in control!")
+}
+
+var users = [User5]()
+
+for i in 1...3 {
+    let user = User5(id: i)
+    print("User \(user.id): I'm in control!")
+    users.append(user)
+}
+
+print("Loop is finished!")
+users.removeAll()
+print("Array is clear!")
+
+// Exercícios 05 Desinicializadores Class
+
+class IceCream {
+    deinit {
+        print("No more icecream :(")
+    }
+}
+
+print()
+print()
+
+//* 06 Variáves dentro de Class
+
+class User6 {
+    var name = "Paul"
+}
+
+var user = User6()
+
+user.name = "Taylor"
+
+user = User6()
+
+print(user.name)
+
+// Exercícios 06 Mutabilidade Class
+
+class Pizza {
+    private var toppings = [String]()
+    func add(topping: String) {
+        toppings.append(topping)
+    }
+}
+
+var pizza = Pizza()
+pizza.add(topping: "Mushrooms")
+
+print()
+
+class School {
+    let students = 200
+    func expel(studant: String, for reason: String) {
+        print("\(studant) has been expelled for \(reason).")
+//        students -= 1 // Essa parte não consegue funcionar porque está subtraindo uma constante
+    }
+}
+
+let school = School()
+school.expel(studant: "Jason", for: "coding during class")
+
+print()
+
+class SewingMachine {
+    var itemsMade = 0
+    /*  mutating */ func makeBag(count: Int) { // mutating não é uma instancia valida em Class
+        itemsMade += count
+    }
+}
+
+var machine = SewingMachine()
+machine.makeBag(count: 1)
+
+print()
+
+struct Park {
+    var numberOfFlowers = 1000
+    func plantFlowers() { // Esta parte precisa estar marcada como mutante
+//        numberOfFlowers += 50
+    }
+}
+
+let park = Park()
+park.plantFlowers()
+
+print()
+
+struct Piano {
+    var untunedKeys = 3
+    mutating func tune() {
+        if untunedKeys > 0 {
+            untunedKeys -= 1
+        }
+    }
+}
+
+var piano = Piano()
+piano.tune()
+
+print()
+
+class Beach {
+    var lifeguards = 10
+    /* mutating */ func addLifeguards(count: Int) { // Não se usa mutating em class
+        lifeguards += count
+    }
+}
+
+var beach = Beach()
+beach.addLifeguards(count: 2)
+
+print()
+
+struct Kindergarten {
+    var numberOfScreamingKids = 30
+    mutating func handOutIceCream() {
+        numberOfScreamingKids = 0
+    }
+}
+
+let kindergarten = Kindergarten()
+//kindergarten.handOutIceCream() // Não da para chamar um mutating com uma contante
+
+print()
+
+class Light {
+    var onState = false
+    func toggle() {
+        if onState {
+            onState = false
+        } else {
+            onState = true
+        }
+        print("Click")
+    }
+}
+
+let light = Light()
+light.toggle()
+
+print()
+
+struct Code {
+    var numberOfBugs = 100
+    mutating func fixBug() {
+        numberOfBugs += 3
+    }
+}
+
+var code = Code()
+code.fixBug()
+
+print()
+
+class Phasers {
+    var energyLevel = 100
+    func firePhasers() {
+        if energyLevel > 10 {
+            print("Firing!")
+        }
+    }
+}
+
+var phasers = Phasers()
+phasers.firePhasers()
+
+print()
+
+class Sun {
+    var isNova = false
+    func goNova() {
+        isNova = true
+    }
+}
+
+let sun = Sun()
+sun.goNova()
+
+print()
+
+struct Barbecue {
+    var charcoalBricks = 20
+    mutating func addBricks(_ number: Int) {
+        charcoalBricks += number
+    }
+}
+
+var barbecue = Barbecue()
+barbecue.addBricks(4)

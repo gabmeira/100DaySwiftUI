@@ -500,3 +500,102 @@ struct Barbecue {
 
 var barbecue = Barbecue()
 barbecue.addBricks(4)
+
+//* CheckPoint 7 - Ponto de Verificação 7
+
+class Animal {
+    let legs: Int // typically attached to feet // Normalmente preso aos pés [legs = pernas]
+    init (legs : Int) { self.legs = max(legs, 0)} // cannot be negative // não pode ser negativo
+}
+
+class Dog: Animal {
+    init() { super.init( legs: 4 ) } // dogs are quadrupeds // Cachorros são quadrúpedes
+    public func speak() { print("bark") } // standard implementation // Implementação padrão
+}
+
+class Cat: Animal {
+    let isTame: Bool
+    init ( isTame isTameFromInit: Bool ) {
+        isTame = isTameFromInit
+        super.init(legs: 4) // cats are quadrupeds. // Gatos são quadrúpedes
+    }
+    public func speak() { print("meow") }
+}
+
+class Corgi: Dog { override func speak() { print ("YAP YAP YAP!") }}
+class Poodle: Dog { override func speak() { print ("WOOF!")       }}
+
+class Persian: Cat {
+    init() { super.init(isTame: true)}
+    override func speak() { print("Yowwwww Yowwwww")    }}
+class Lion: Cat {
+    init() { super.init(isTame: false)}
+    override func speak() { print("Roooooooar")         }}
+
+// =============================
+// Test cases to try in Playground // Casos de teste para experimentar no Playground
+
+let larry   = Corgi()
+let moe     = Poodle()
+let curly   = Persian()
+let shemp   = Lion()
+
+print ("Larry is a dog with \(larry.legs) legs. Larry says ")
+larry.speak() ; print("\n")
+print ("Moe is a dog with \(moe.legs) legs. Moe says ")
+moe.speak() ; print("\n")
+print ("Curly is a " + (curly.isTame ? "tame " : "wild ") + "cat with \(curly.legs) legs. Curly says ")
+curly.speak() ; print("\n")
+print ("Shemp is a " + (shemp.isTame ? "tame " : "wild ") + "cat with \(shemp.legs) legs. Shemp says")
+shemp.speak() ; print("\n")
+
+//* Anotações do checkpoint 7
+
+//* Precisei recorer a resolução para conseguir fazer, de inicio fiquei com dúvida se faria uma class dentro da outra, tanto que fiz como tentativa. Código no final. Mas basicamente só fiz o esqueleto mesmo e ainda errado. Uma subclass é chamada com class nomeFilha: classPai. As lógicas ainda me pegam também, meio que não teve muita, foi mais estrutural, mas mesmo assim ficou confuso na minha cabeça. Não sei dizer se foi a tradução ou só o desententimento mesmo, provavelmente que foi os dois.
+
+//* Irei seguir para as próximas etapas e desafios.
+
+// Estrutura da primeira resolução do exercício errada.
+//class Animal {
+//    
+//    class dog {
+//        
+//        class corgi {
+//            
+//        }
+//        
+//        class poodle {
+//            
+//        }
+//        
+////        func latidos {
+////            if latidos
+////        }
+//        
+//    }
+//    
+//    class cat {
+//        
+//        class persian {
+//            
+//        }
+//        
+//        class lion {
+//            
+//        }
+//        
+////        func miado {
+////            if miados
+////        }
+//        
+//        init(isTame: Bool) {
+//            
+//        }
+//        
+//    }
+//    
+////    func patas {
+////        if quantas patas
+////    }
+//    
+//}

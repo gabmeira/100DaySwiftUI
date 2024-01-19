@@ -262,3 +262,53 @@ extension Anime {
 }
 
 //* CheckPoint 8 - Ponto de Verificação 8
+
+protocol Construcao {
+    var quartos: Int { get } // Por que isso é uma var, se você especificar só poderá GET esse valor? Deveria ser um let?
+    var custo: Int { get }
+    var vendedor: String { get }
+    func resumoVendas()
+}
+
+struct Casa: Construcao {
+    var quartos: Int
+    var custo: Int
+    var vendedor: String
+    
+    func resumoVendas() {
+        print("Aqui temos uma linda casa com \(quartos) quartos. O preço será \(custo) Dolares e seu vendedor é \(vendedor)")
+    }
+}
+
+extension Casa {
+    init(quartos: Int, vendedor: String) {
+        self.quartos = quartos
+        self.custo = quartos * 50_000
+        self.vendedor = vendedor
+    }
+}
+
+struct Escritorio: Construcao {
+    var quartos: Int { // O número de quartos é calculado com base no número de assentos no prédio de escritórios.
+        assentos / 2 // Apenas exemplo. Cada escritório contém 2 assentos.
+    }
+    
+    var assentos: Int // Adicionou esta variável para reportar o número de assetnos no prédio de escritórios
+    var custo: Int
+    var vendedor: String
+    
+    func resumoVendas() {
+        print("Aqui temos um lindo prédio com \(assentos) assentos em \(quartos) escritórios.")
+    }
+}
+
+let casa = Casa(quartos: 6, custo: 150_000, vendedor: "Maxi")
+casa.resumoVendas()
+
+let escritorio = Escritorio(assentos: 2, custo: 50_000, vendedor: "Maxi")
+escritorio.resumoVendas()
+
+let extCasa = Casa(quartos: 5, vendedor: "Maxi")
+extCasa.resumoVendas()
+
+//* Essa resolução precisei olhar na internet e copiar ela por inteiro. Deu para perceber que deixei passar muito entendimento do que precisava fazer com Protocols e Extensions. 

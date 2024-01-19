@@ -312,3 +312,44 @@ let extCasa = Casa(quartos: 5, vendedor: "Maxi")
 extCasa.resumoVendas()
 
 //* Essa resolução precisei olhar na internet e copiar ela por inteiro. Deu para perceber que deixei passar muito entendimento do que precisava fazer com Protocols e Extensions. 
+
+
+//* Tutorial Extra não para iniciantes
+
+extension Numeric {
+    func squared() -> Self {
+        self * self
+    }
+}
+
+let wholeNumber = 5
+print(wholeNumber.squared())
+
+print()
+print()
+
+//struct User: Equatable {
+//    let name: String
+//}
+
+struct User: Equatable, Comparable {
+    let name: String
+}
+
+func <(lhs: User, rhs: User) -> Bool {
+    lhs.name < rhs.name
+}
+
+let user1 = User(name: "Link")
+let user2 = User(name: "Zelda")
+
+//print(user1 == user2)
+//print(user1 != user2)
+
+let user3 = User(name: "Taylor")
+let user4 = User(name: "Adele")
+
+print(user3 < user4)
+print(user3 <= user4)
+print(user3 >= user4)
+print(user3 >= user4)

@@ -145,15 +145,185 @@ if let name = winner {
 
 print()
 
-var bestScore: Int? = nil
-bestScore = 101
-
-if bestScore > 100 { // Não da para comprar bestScore com um numero assim. Precisaria colocar let por ter uma opicional e fazer um if depois com a comparação, dentro do "desembulhar".
-    print("You got a high score!")
-} else {
-    print("Better luck next time.")
-}
+//var bestScore: Int? = nil
+//bestScore = 101
+//
+//if bestScore > 100 { // Não da para comprar bestScore com um numero assim. Precisaria colocar let por ter uma opicional e fazer um if depois com a comparação, dentro do "desembulhar".
+//    print("You got a high score!")
+//} else {
+//    print("Better luck next time.")
+//}
 
 print()
 
 //* 02 Desembrulhando opticonals com guarda
+
+func printSquare(of number: Int?) {
+    guard let number = number else {
+        print("Missing input")
+        return
+    }
+    
+    print("\(number) x \(number) is \(number * number)")
+}
+
+//var myVar: Int? = 3
+//
+//if let unwrapped = myVar {
+//    print("Run if myVar has a value inside")
+//}
+//
+//guard let unwrapped = myVar else {
+//    print("Run if myVar doesn't have a value insude")
+//    return
+//}
+//
+//guard some Array.isEmpty else {
+//    return
+//}
+
+func getMeaningOfLife() -> Int? {
+    42
+}
+
+func printMeaningOfLife() {
+    guard let name = getMeaningOfLife() else {
+        return
+    }
+    
+    print(name)
+}
+
+printMeaningOfLife()
+
+print()
+
+//* Exercícios desembrulhando guards
+
+func double(number: Int?) -> Int? {
+    guard let number = number else {
+        return nil
+    }
+    return number * 2
+}
+
+let input = 5
+if let doubled = double(number: input) {
+    print("\(input) doubled is \(doubled).")
+}
+
+print()
+
+func playOpera(by composer: String?) -> String? {
+    guard let composer = composer else {
+        return "Please specify a composer."
+    }
+    if composer == "Mozart" {
+        return "Le nozze di Figaro"
+    } else {
+        return nil
+    }
+}
+if let opera = playOpera(by: "Mozart") {
+    print(opera)
+}
+
+print()
+
+func playScale(name: String?) {
+    guard let name = name else {
+        return
+    }
+    print("Playing the \(name) scale.")
+}
+
+playScale(name: "C")
+
+print()
+
+func uppercase(string: String?) -> String? {
+    guard let string = string else {
+        return nil
+    }
+    return string.uppercased()
+}
+
+if let result = uppercase(string: "Hello") {
+    print(result)
+}
+
+print()
+
+func isLongEnough(_ string: String?) -> Bool {
+    guard let string = string else { return false }
+    if string.count >= 8 {
+        return true
+    } else {
+        return false
+    }
+}
+if isLongEnough("Mario Odyssey") {
+    print("Let's play that!")
+}
+
+print()
+
+func add3(to number: Int?) -> Int? {
+    guard let number = number else {
+        return 3
+    }
+    return number + 3
+}
+
+if let added = add3(to: 5) {
+    print(added)
+}
+
+print()
+
+func validate(password: String?) -> Bool {
+    guard let passwrod = password else {
+        return false
+    }
+    if password == "fr0sties" {
+        print("Authenticated successfully!")
+        return true
+    }
+    return false
+}
+
+validate(password: "fr0sties")
+
+print()
+
+func test(number: Int?) {
+    guard let number = number else { return }
+    print("Number is \(number)")
+}
+
+test(number: 42)
+
+print()
+
+func describe(occupation: String?) {
+    guard let occupation = occupation else {
+        print("You don't have a job.")
+        return
+    }
+    print("You are an \(occupation).")
+}
+
+let job = "engineer"
+describe(occupation: job)
+
+print()
+
+func plantTree(_ type: String?) {
+    guard let type else {
+        return
+    }
+    print("Planting a \(type).")
+}
+plantTree("willow")
+
+//* 03 Optionals com coalescência nula

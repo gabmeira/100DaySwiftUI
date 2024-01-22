@@ -327,3 +327,71 @@ func plantTree(_ type: String?) {
 plantTree("willow")
 
 //* 03 Optionals com coalescência nula
+
+let captains = [
+    "Enterprise": "Picard",
+    "Voyager": "Janeway",
+    "Defiant": "Sisko"
+]
+
+let new = captains["Serenity"] ?? "N/A"
+// let new = captains["Serenity", default: "N/A"]
+
+let tvShows = ["Archer", "Babylon 5", "Ted Lasso"]
+let favorite = tvShows.randomElement() ?? "None"
+
+struct Book {
+    let title: String
+    let author: String?
+}
+
+let book = Book(title: "Beowulf", author: nil)
+let author = book.author ?? "Anonymous"
+
+print(author)
+
+let input2 = ""
+let number2 = Int(input) ?? 0
+print(number2)
+
+//let savedData = loadSavedMessage() ?? ""
+//let savedData2 = first() ?? second() ?? "" // Entender porque está dando errado, quando é valido.
+
+let scores = ["Picard": 800, "Data": 7000, "Troi": 900]
+let crusherScore = scores["Crusher"] ?? 0
+
+let crusherScore2 = scores["Crusher", default: 0]
+
+// Exercicios de Optionals com coalescência nula
+
+var captain: String? = "Kathryn Janeway"
+let name = captain ?? "Anonymous"
+
+print()
+
+let planetNumber: Int? = 426
+var destination = planetNumber ?? 3
+
+print()
+
+//let userID: Int? = 556
+//let id = userID ?? "Unknown"
+
+// Isso não é possível porque estou usando Tipos diferentes (Int e String)
+
+print()
+
+let distanceRan: Double? = 0.5
+let distance: Double = distanceRan ?? 0
+
+print()
+
+var userOptedIn: Bool? = nil
+var optedIn = userOptedIn ?? false
+
+print()
+
+var selectedYear: Int? = nil
+let actualYear = selectedYear ?? 1989
+
+//* 04 Varias Options usando encadeamento

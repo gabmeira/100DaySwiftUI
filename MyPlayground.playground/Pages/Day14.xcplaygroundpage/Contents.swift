@@ -454,3 +454,14 @@ let racers = ["Hamilton", "Verstappen", "Vettel"]
 let winnerWasVE = racers.first?.hasPrefix("Ve")
 
 //* 05 Falhas função optionals
+
+enum UserError: Error {
+    case badID, networkFailed
+}
+
+func getUser(id: Int) throws -> String {
+    throw UserError.networkFailed
+}
+
+let user = (try? getUser(id: 23)) ?? "Anonymous"
+    print("User: \(user)")

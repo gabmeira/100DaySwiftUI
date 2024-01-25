@@ -465,3 +465,15 @@ func getUser(id: Int) throws -> String {
 
 let user = (try? getUser(id: 23)) ?? "Anonymous"
     print("User: \(user)")
+
+print()
+
+//* CheckPoint 9 - Ponto de Verificação 9
+
+func mindBlown(_ input: [Int]?) -> Int { return input?.randomElement() ?? Int.random(in: 1...100) }
+print(mindBlown(nil))
+print(mindBlown([0, 1]))
+
+//* Novamente precisei pegar digas de como fazer, não estou conseguindo encaixar as coisas e deixar de forma onde se complementem para virar algo a construir um projeto maior. Preciso de outros tipos de exercícios? Preciso de mais tempo olhando como faz e tentando de vagar melhorar a compreenção das funções, propriedades?
+
+

@@ -85,3 +85,74 @@ print(colors.count)
 print(colors.contains("Octarine"))
 
 // Dicinários
+
+let employee = [
+    "name": "Taylor",
+    "job": "Singer"
+]
+
+print(employee["name", default: "Unknown"])
+print(employee["job", default: "Unknown"])
+
+// Conjuntos
+
+var numberss = Set([1, 1, 3, 5, 7])
+print(numberss)
+
+numberss.insert(10)
+
+// Enums
+
+enum Weekday {
+    case monday, tuesday, wednesday, thursday, friday
+}
+
+var day = Weekday.monday
+day = .friday
+
+// Digite anotações
+
+var score3: Double = 0
+
+let player: String = "Roy"
+var luckyNumber: Int = 13
+let pi: Double = 3.141
+var isEnabled: Bool = true
+var albums: Array<String> = ["Red", "Fearless"]
+var user3: Dictionary<String, String> = ["id": "@twostraws"]
+var books: Set<String> = Set(["The Bluest Eye", "Foundation"])
+
+var albumss: [String] = ["Red", "Fearless"]
+var user4: [String: String] = ["id": "@twostraws"]
+var teams: [String] = [String]()
+var clues = [String]()
+
+enum UIStyle {
+    case light, dark, system
+}
+
+var style: UIStyle = .light
+
+// Condições
+
+let age2 = 16
+
+if age2 < 12 {
+    print("You can't vote")
+} else if age2 < 18 {
+    print("You can vote soon.")
+} else {
+    print("You can vote now.")
+}
+
+let temp = 26
+
+if temp > 20 && temp < 30 {
+    print("It's a nice day.")
+}
+
+if temp > 20 || temp < 26 {
+    print("Este é um dia incerto")
+}
+
+// Declarações de mudança

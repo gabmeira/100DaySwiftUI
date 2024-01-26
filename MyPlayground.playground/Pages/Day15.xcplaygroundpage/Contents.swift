@@ -156,3 +156,129 @@ if temp > 20 || temp < 26 {
 }
 
 // Declarações de mudança
+
+enum Weather {
+    case sun, rain, wind
+}
+
+let forecast = Weather.sun
+
+switch forecast {
+case .sun:
+    print("A nice day.")
+case .rain:
+    print("Pack an umbrella.")
+default:
+    print("Should be okay.")
+}
+
+// Operador conticional ternário
+
+let age3 = 18
+let canVote = age3 >= 18 ? "Yes" : "No"
+
+// Rotação loops
+
+let platforms = ["iOS", "macOS", "tvOS", "watchOS"]
+
+for os in platforms {
+    print("Swift works on \(os).")
+}
+
+for i in 1...12 {
+    print("5 x \(i) is \(5 * i)")
+}
+
+for i in 1..<13 {
+    print("5 x \(i) is \(5 * i)")
+}
+
+var lyric = "Haters gonna"
+
+for _ in 1...5 {
+    lyric += " hate"
+}
+
+print(lyric)
+
+var count = 10
+
+while count > 0 {
+    print("\(count)...")
+    count -= 1
+}
+
+print("Go!")
+
+let files = ["me.jpg", "work.txt", "sophie.jpg"]
+
+for file in files {
+    if file.hasSuffix(".jpg") == false {
+        continue
+    }
+    
+    print("Found picture: \(file)")
+}
+
+// Funções
+
+func printTimesTables(number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+
+printTimesTables(number: 5)
+
+func rollDice() -> Int {
+    return Int.random(in: 1...6)
+}
+
+let result = rollDice()
+print(result)
+
+func rollDice2() -> Int {
+    Int.random(in: 1...6) // Neste exemplo diferente do superior, ele não usar return. Mas essa contição só funcina em função com uma linha.
+}
+
+// Returnando vários valores de funções
+
+func getUser() -> (firstName: String, lastName: String) {
+    (firstName: "Taylor", lastName: "Swift")
+}
+
+let user5 = getUser()
+print("Name: \(user5.firstName) \(user5.lastName)")
+
+let (firstName, _) = getUser()
+print("Name: \(firstName)")
+
+// Personalizando rótulos de parâmetros
+
+func isUppercase(_ string: String) -> Bool {
+    string == string.uppercased()
+}
+
+let string = "HELLO, WORLD"
+let result2 = isUppercase(string)
+
+func printTimesTables2(for number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+
+printTimesTables2(for: 5)
+
+// Fornecendo valores padrão para parâmetros
+
+func greet(_ person: String, formal: Bool = false) {
+    if formal {
+        print("Welcome, \(person)!")
+    } else {
+        print("Hi, \(person)!")
+    }
+}
+
+greet("Tim", formal: true)
+greet("Taylor")

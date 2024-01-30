@@ -319,3 +319,23 @@ do {
 } catch {
     print("There was an error.")
 }
+
+// Fechamentos
+
+let sayHellos = { (name: String) -> String in
+    "Hi \(name)!"
+}
+
+sayHellos("Gabriel")
+
+let team = ["Gloria", "Suzanne", "Tiffany", "Tasha"]
+
+let onlyT = team.filter({ (name: String) -> Bool in
+    return name.hasPrefix("T")
+})
+
+print(onlyT)
+
+// Fechamento finais e sintaxe abreviada
+
+

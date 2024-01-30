@@ -270,6 +270,8 @@ func printTimesTables2(for number: Int) {
 
 printTimesTables2(for: 5)
 
+print()
+
 // Fornecendo valores padrão para parâmetros
 
 func greet(_ person: String, formal: Bool = false) {
@@ -282,3 +284,38 @@ func greet(_ person: String, formal: Bool = false) {
 
 greet("Tim", formal: true)
 greet("Taylor")
+
+print()
+
+// Tratamento de erros em funções
+
+enum PasswordError: Error {
+    case short, obvious
+}
+
+func checkPassword(_ password: String) throws -> String {
+    if password.count < 5 {
+        throw PasswordError.short
+    }
+    
+    if password == "12345" {
+        throw PasswordError.obvious
+    }
+    
+    if password.count < 10 {
+        return "OK"
+    } else {
+        return "Good"
+    }
+}
+
+let string2 = "12345"
+
+do {
+    let result = try checkPassword(string)
+    print("Rating: \(result)")
+} catch PasswordError.obvious {
+    print("I have the same combination on my lyggage!")
+} catch {
+    print("There was an error.")
+}

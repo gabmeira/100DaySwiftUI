@@ -338,4 +338,235 @@ print(onlyT)
 
 // Fechamento finais e sintaxe abreviada
 
+let onlyTT = team.filter { name in
+    name.hasPrefix("T")
+}
 
+let onlyTTT = team.filter {
+    $0.hasPrefix("T")
+}
+
+// Estruturas
+
+struct Album {
+    let title: String
+    let artist: String
+    var isReleased = true
+    
+    func printSymmary() {
+        print("\(title) by \(artist)")
+    }
+    
+    mutating func removeFromSale() {
+        isReleased = false
+    }
+}
+
+let red = Album(title: "Red", artist: "Taylor Swift")
+print(red.title)
+red.printSymmary()
+
+// Propriedades computadas
+
+struct Employee {
+    let name: String
+    var vacationAllocated = 14
+    var vacationTaken = 0
+    
+    var vacationRemaining: Int {
+        vacationAllocated - vacationTaken
+    }
+    
+    var vacationRemainingGetSet: Int {
+        get {
+            vacationAllocated - vacationTaken
+        }
+        
+        set {
+            vacationAllocated = vacationTaken + newValue
+        }
+    }
+}
+
+// Observadores de propriedades
+
+struct Game {
+    var score = 0 {
+        didSet {
+            print("Score is now \(score)")
+        }
+    }
+}
+
+var game = Game()
+game.score += 10
+game.score -= 3
+
+// Inicializadores personalizados
+
+struct Player {
+    let name: String
+    let number: Int
+    
+    init(name: String) {
+        self.name = name
+        number = Int.random(in: 1...99)
+    }
+}
+
+// Controle de Acesso
+
+struct BankAccount {
+    private(set) var funds = 0
+    
+    mutating func deposit(amount: Int) {
+        funds += amount
+    }
+    
+    mutating func withdraw(amount: Int) -> Bool {
+        if funds > amount {
+            funds -= amount
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+print()
+
+// Propriedades e métodos estáticos
+
+struct AppData {
+    static let version = "1.3 beta 2"
+    static let settings = "settings.json"
+}
+
+print(AppData.version)
+
+// Class
+
+class Employees {
+    let hours: Int
+    
+    init(hours: Int) {
+        self.hours = hours
+    }
+    
+    func printSummary() {
+        print("I work \(hours) hours a day.")
+    }
+}
+
+class Developer: Employees {
+    func work() {
+        print("I'm coding for \(hours) hours.")
+    }
+    
+    override func printSummary() {
+        print("I spend \(hours) hours a day searching Stack Overflow.")
+    }
+}
+
+let novall = Developer(hours: 8)
+novall.work()
+novall.printSummary()
+
+class Vehicle {
+    let isElectric: Bool
+    
+    init(isElectric: Bool) {
+        self.isElectric = isElectric
+    }
+}
+
+class Car: Vehicle {
+    let isConvertible: Bool
+    
+    init(isEletric: Bool, isConvertible: Bool) {
+        self.isConvertible = isConvertible
+        super.init(isElectric: isEletric)
+    }
+}
+
+print()
+
+class Singer {
+    var name = "Adele"
+}
+
+var singer1 = Singer()
+var singer2 = singer1
+singer2.name = "Justin"
+print(singer1.name)
+print(singer2.name)
+
+print()
+
+class User {
+    let id: Int
+    
+    init(id: Int) {
+        self.id = id
+        print("User \(id): I'm alive!")
+    }
+    
+    deinit {
+        print("User \(id): I'm dead!")
+    }
+}
+
+for i in 1...3 {
+    let user = User(id: i)
+    print("User \(user.id): I'm in control!")
+}
+
+class User2 {
+    var name = "Paul"
+}
+
+let user9 = User2()
+user9.name = "Taylor"
+print(user9.name)
+
+// Protocolos
+
+protocol Vehicle3 {
+    func estimateTime(for distance: Int) -> Int
+    func travel(distance: Int)
+}
+
+struct Car2: Vehicle3 {
+    func estimateTime(for distance: Int) -> Int{
+        distance / 50
+    }
+    
+    func travel(distance: Int) {
+        print("I'm driving \(distance)km.")
+    }
+    
+}
+
+func commute(distance: Int, using vehicle: Vehicle3) {
+    if vehicle.estimateTime(for: distance) > 100 {
+        print("Too slow!")
+    } else {
+        vehicle.travel(distance: distance)
+    }
+}
+
+let car2 = Car2()
+commute(distance: 100, using: car2)
+
+protocol Vehicle4 {
+    var name: String { get }
+    var currentPassengers: Int { get set }
+    func estimteTime(for distance: Int) -> Int
+    func travel(distance: Int)
+}
+
+let name4 = "Car"
+var currentPassengers = 1
+
+
+// Extensões

@@ -568,5 +568,111 @@ protocol Vehicle4 {
 let name4 = "Car"
 var currentPassengers = 1
 
+print()
 
 // Extensões
+
+extension String {
+    func trimmed() -> String {
+        self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+}
+
+var quotes = "    The truth is raraly pure and never simples    "
+let trimmed = quotes.trimmed()
+
+print(trimmed)
+print()
+
+extension String {
+    mutating func trim() {
+        self = self.trimmed()
+    }
+}
+
+var cortarEspaco = "    Sem espaço    "
+
+cortarEspaco.trim()
+
+extension String {
+    var lines: [String] {
+        self.components(separatedBy: .newlines)
+    }
+}
+
+let lyrics = """
+But I keep cruising
+Can't stop, won't stop moving
+"""
+
+print(lyrics.lines.count)
+print()
+
+// Extensões de protocolo
+
+extension Collection {
+    var isNotEmpty: Bool {
+        isEmpty == false
+    }
+}
+
+let guests = ["Mario", "Luigi", "Peach"]
+
+if guests.isNotEmpty {
+    print("Guest count: \(guests.count)")
+}
+
+// Opcionais
+
+let opposites = [
+    "Mario": "Wario",
+    "Luigi": "Waluigi"
+]
+
+let peachOpposite = opposites["Peach"]
+
+if let marioOpposite = opposites["Mario"] {
+    print("Mario's opposite is \(marioOpposite)")
+}
+
+print()
+
+// Desembrulhando opcionais com proteção
+
+func printSquare(of number: Int?) {
+    guard let number = number else {
+        print("Missing input")
+        return
+    }
+    
+    print("\(number) x \(number) is \(number * number)")
+}
+
+// Nenhuma coalescência
+
+let tvShows = ["Archer", "Babylon 5", "Ted Lasso"]
+let favorite = tvShows.randomElement() ?? "None"
+
+let input = ""
+let numbersss = Int(input) ?? 0
+print(numbersss)
+
+// Encadeamento opcional
+
+let namess = ["Arya", "Bran", "Robb", "Sansa"]
+let chosen = namess.randomElement()?.uppercased()
+print("Next in line: \(chosen ?? "No one")")
+
+// Tentativa opcional?
+
+enum UserError: Error {
+    case badID, networkFailed
+}
+
+func getUser(id: Int) throws -> String {
+    throw UserError.networkFailed
+}
+
+if let user = try? getUser(id: 23) {
+    print("User: \(user)")
+}

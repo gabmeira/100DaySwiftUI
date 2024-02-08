@@ -15,9 +15,6 @@ struct ContentView: View {
     @State private var tipPercentage = 20
     @FocusState private var amountIsFocused: Bool
     
-    let tipPercentages = ForEach(0..<101) {
-        Text("\($0)")
-    }
     
     var totalPerPerson: Double {
         let peopleCount = Double(numberOfPeople + 2)
@@ -31,13 +28,13 @@ struct ContentView: View {
     }
     
     var valorGorjeta: Double {
-        let peopleCount = Double(numberOfPeople + 2)
-        let tipSelection = Double(tipPercentage)
+        let peopleCounts = Double(numberOfPeople + 2)
+        let tipSelections = Double(tipPercentage)
         
-        let tipValue = checkAmount / 100 * tipSelection
-        let grandTotal = checkAmount + tipValue
+        let tipValues = checkAmount / 100 * tipSelections
+        let grandTotals = checkAmount + tipValues
         
-        return grandTotal
+        return grandTotals
     }
     
     var body: some View {
@@ -53,19 +50,19 @@ struct ContentView: View {
                             Text("\($0) people")
                         }
                     }
-//                    .pickerStyle(.navigationLink)
+                    //                    .pickerStyle(.navigationLink)
                 }
                 
                 Section("How much tip do you want to leave?") {
                     Picker("Tip percentage", selection: $tipPercentage) {
-//                        ForEach(tipPercentages, id: \.self) {
-//                            Text($0, format: .percent)
-//                        }
-                        Text(tipPercentages, format: .percent)
+                        ForEach(0..<101) { percentage in
+                            Text("\(percentage)%")
+                        }
                     }
-                    .pickerStyle(.segmented)
                 }
-                
+                    .pickerStyle(.navigationLink)
+//                    .pickerStyle(.segmented)
+                    
                 Section("Amount per people") {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
@@ -73,12 +70,12 @@ struct ContentView: View {
                 Section("Valor Real + Gorjeta") {
                     Text(valorGorjeta, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
-            }
-            .navigationTitle("WeSplit")
-            .toolbar {
-                if amountIsFocused {
-                    Button("Done") {
-                        amountIsFocused = false
+                .navigationTitle("WeSplit")
+                .toolbar {
+                    if amountIsFocused {
+                        Button("Done") {
+                            amountIsFocused = false
+                        }
                     }
                 }
             }

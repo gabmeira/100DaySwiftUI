@@ -10,8 +10,14 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var numeroUsuario = 0.0
-    @State private var conversao = ["metros", "quilômetros", "pés", "jardas", "milhas"]
+    @State private var menuInicio = "metros"
     @State private var resultado = "teste"
+    
+    let conversao = ["metros", "quilômetros", "pés", "jardas", "milhas"]
+    
+    var resultado: Double {
+// Aqui vou fazer a lógica de conversão. Dica converter tudo que o usuário mandar em um item e depois converter para o que ele quer. 
+    }
     
     var body: some View {
         Form {
@@ -19,11 +25,37 @@ struct ContentView: View {
                 Text("App Unit Conversions")
             }
             
-//            Section("conversão de comprimento") {
-               
-//            }
+            Section("Unidade entrada") {
+                Picker("seletor", selection: $menuInicio) {
+                    ForEach(conversao, id: \.self) {
+                        Text("\($0)")
+                    }
+                }
+                .pickerStyle(.palette)
+            }
             
-            /* 
+            Section("Valor para conversão") {
+                TextField("0", value: $numeroUsuario, format: .number)
+                    .keyboardType(.decimalPad)
+            }
+            
+            Section("Unidade saída") {
+                Picker("seletor", selection: $menuInicio) {
+                    ForEach(conversao, id: \.self) {
+                        Text("\($0)")
+                    }
+                }
+                .pickerStyle(.palette)
+            }
+            
+            Section("Resultado") {
+                TextField("0", value: $numeroUsuario, format: .number)
+                    .keyboardType(.decimalPad)
+            }
+            
+            
+            
+            /*
             
             Se você estivesse optando pela conversão de comprimento, você poderia ter:
 
@@ -34,19 +66,9 @@ struct ContentView: View {
              
             */
             
-            Section {
-                TextField("0", value: $numeroUsuario, format: .number)
-                    .keyboardType(.decimalPad)
-            }
         }
         
-        Picker("seletor", selection: $conversao) {
-            ForEach(conversao, id: \.self) {
-                Text("\($0)")
-            }
-        }
-        .pickerStyle(.menu)
-        .padding()
+        
     }
 }
 

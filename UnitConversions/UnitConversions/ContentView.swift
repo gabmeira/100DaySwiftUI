@@ -7,6 +7,7 @@
 
 //* Tirando as teias de aranhas deste código D=
 //* Vou precisar tirar mais de uma hora para colocar isso nos trilhos D=
+//* Importante dividir em blocos o que precisa fazer e como vai ficar no código
 
 
 import SwiftUI

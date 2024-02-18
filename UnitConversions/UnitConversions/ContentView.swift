@@ -5,6 +5,10 @@
 //  Created by Gabriel Bruno Meira on 08/02/24.
 //
 
+//* Tirando as teias de aranhas deste código D=
+//* Vou precisar tirar mais de uma hora para colocar isso nos trilhos D=
+
+
 import SwiftUI
 
 struct ContentView: View {
@@ -15,9 +19,9 @@ struct ContentView: View {
     
     let conversao = ["metros", "quilômetros", "pés", "jardas", "milhas"]
     
-    var resultado: Double {
-// Aqui vou fazer a lógica de conversão. Dica converter tudo que o usuário mandar em um item e depois converter para o que ele quer. 
-    }
+//    var resultado: Double {
+//// Aqui vou fazer a lógica de conversão. Dica converter tudo que o usuário mandar em um item e depois converter para o que ele quer. 
+//    }
     
     var body: some View {
         Form {
